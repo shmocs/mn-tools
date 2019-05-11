@@ -1,12 +1,16 @@
 #!/bin/bash
 source /root/mn-tools/snowgem.cfg
 
-block=$($cli getinfo |grep block |grep -Eo '[0-9]+')
+block=$($cli getblockcount)
+echo "Block: $block"
+zipfile="snowgem-indexed-chain-$block.zip"
+echo "Zip file: $zipfile"
 
 cd $datadir
 rm -f snowgem-indexed-chain*
-zip -r snowgem-indexed-chain-$block.zip blocks chainstate
-ssh $webhost "cd $webroot && rm -f *.zip"
-scp snowgem-indexed-chain-$block.zip $webhost:$webroot
-ssh $webhost "cd $webroot && ln -s snowgem-indexed-chain-$block.zip indexed-chain.zip"
-rm -f snowgem-indexed-chain-$block.zip
+zip -r $zipfile blocks chainstate
+#zip -r $zipfile sporks database
+ssh $webhost "cd $webroot && rm -f *.zip && rm -f snowgem-indexed*"
+scp $zipfile $webhost:$webroot
+ssh $webhost "cd $webroot && ln -s $zipfile blockchain_index.zip"
+rm -f $zipfile
