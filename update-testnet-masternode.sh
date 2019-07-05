@@ -41,7 +41,7 @@ echo "server=1" >> $confFile
 echo "txindex=1" >> $confFile
 echo "masternodeaddr="$mn_ip:26113"" >> $confFile
 echo "externalip="$mn_ip:26113"" >> $confFile
-echo "masternodeprivkey="5JxDagbie38f6XNLF9BW39kub8VhRTXvSXMGxArKCMV2aRy7zEm"" >> $confFile
+echo "masternodeprivkey="93Q6sHPrvVaoCnDfjba76m688iCdHcWrKJK6cWLMcX71Gc5DtAu"" >> $confFile
 echo "masternode=1" >> $confFile
 
 cd $testnet_binaries_path
