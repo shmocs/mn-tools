@@ -39,8 +39,8 @@ echo "port=26113" >> $confFile
 echo "listen=1" >> $confFile
 echo "server=1" >> $confFile
 echo "txindex=1" >> $confFile
-echo "masternodeaddr=".."" >> $confFile
-echo "externalip="$mn_ip"" >> $confFile
+echo "masternodeaddr="$mn_ip:26113"" >> $confFile
+echo "externalip="$mn_ip:26113"" >> $confFile
 echo "masternodeprivkey=".."" >> $confFile
 echo "masternode=1" >> $confFile
 
