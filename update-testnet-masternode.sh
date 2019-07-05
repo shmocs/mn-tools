@@ -71,7 +71,7 @@ TimeoutStopSec=10
 Nice=-20
 ProtectSystem=full
 [Install]
-WantedBy=multi-user.target' >> /lib/systemd/system/snowgem_testnet.service"
+WantedBy=multi-user.target' > /lib/systemd/system/snowgem_testnet.service"
 
 sh -c "$service"
 
