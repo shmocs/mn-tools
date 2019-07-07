@@ -5,6 +5,8 @@ testnet_wallet_path=~/testnet/.snowgem
 confFile=$testnet_wallet_path/snowgem.conf
 cli=$testnet_binaries_path/snowgem-cli --datadir=$testnet_wallet_path
 
+echo "Cli: $cli"
+
 mkdir -p $testnet_wallet_path
 
 # Asgard common script
