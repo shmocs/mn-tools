@@ -30,6 +30,8 @@ echo "rpcpassword="$rpcpassword >> $confFile
 mn_ip=$(curl https://icanhazip.com)
 mn_key=$(curl https://asgard.snowgem.org/php/public-api?action=getTestnetMnKey)
 
+echo "addnode=68.183.162.58" >> $confFile
+echo "addnode=206.189.160.115" >> $confFile
 echo "addnode=explorer.testnet.snowgem.org" >> $confFile
 echo "addnode=test.pool.snowgem.org" >> $confFile
 echo "addnode=45.32.35.160" >> $confFile
