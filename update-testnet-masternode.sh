@@ -28,6 +28,7 @@ rpcpassword=$(gpw 1 30)
 echo "rpcpassword="$rpcpassword >> $confFile
 
 mn_ip=$(curl https://icanhazip.com)
+mn_key=$(curl https://asgard.snowgem.org/php/public-api?action=getTestnetMnKey)
 
 echo "addnode=explorer.testnet.snowgem.org" >> $confFile
 echo "addnode=test.pool.snowgem.org" >> $confFile
@@ -41,7 +42,7 @@ echo "server=1" >> $confFile
 echo "txindex=1" >> $confFile
 echo "masternodeaddr="$mn_ip:26113"" >> $confFile
 echo "externalip="$mn_ip:26113"" >> $confFile
-echo "masternodeprivkey="93Q6sHPrvVaoCnDfjba76m688iCdHcWrKJK6cWLMcX71Gc5DtAu"" >> $confFile
+echo "masternodeprivkey="$mn_key"" >> $confFile
 echo "masternode=1" >> $confFile
 
 cd $testnet_binaries_path
