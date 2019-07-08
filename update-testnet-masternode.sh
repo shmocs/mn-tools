@@ -52,7 +52,7 @@ echo "masternode=1" >> $confFile
 
 cd $testnet_binaries_path
 
-wget -N https://github.com/shmocs/mn-tools/releases/download/3000455-20190621/snowgem-ubuntu18.04-3000455-20190621.zip -O ~/binary.zip
+wget -N https://github.com/shmocs/mn-tools/releases/download/3000456-20190708/snowgem-ubuntu18.04-3000456-20190708.zip -O ~/binary.zip
 unzip -o ~/binary.zip -d $testnet_binaries_path
 
 
