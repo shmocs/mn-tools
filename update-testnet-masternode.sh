@@ -10,10 +10,10 @@ echo "Cli: $cli"
 mkdir -p $testnet_wallet_path
 
 # Asgard common script
-#mncommon="/root/oneclick/mn-common.sh"
+mncommon="/root/oneclick/mn-common.sh"
 
 # Include Asgard common script
-#source $mncommon
+source $mncommon
 
 # stop & remove old service
 service snowgem_testnet stop
@@ -31,6 +31,8 @@ echo "rpcpassword="$rpcpassword >> $confFile
 
 mn_ip=$(curl https://icanhazip.com)
 mn_key=$(curl https://asgard.snowgem.org/php/public-api?action=getTestnetMnKey)
+
+report_asgard_testnet_mnkey $mn_key
 
 echo "addnode=68.183.162.58" >> $confFile
 echo "addnode=206.189.160.115" >> $confFile
@@ -56,10 +58,6 @@ unzip -o ~/binary.zip -d $testnet_binaries_path
 
 chmod +x $testnet_binaries_path/snowgemd $testnet_binaries_path/snowgem-cli
 
-#start
-#report_asgard_progress 'Starting testnet service ...' 90
-
-
 service="echo '[Unit]
 Description=Snowgem Testnet daemon
 After=network-online.target
@@ -82,10 +80,9 @@ sh -c "$service"
 systemctl enable --now snowgem_testnet.service
 service snowgem_testnet start
 
-sleep 5
 x=1
 echo "Wait for starting"
-sleep 15
+sleep 10
 while true ; do
     echo "Wallet is opening, please wait. This step will take few minutes ($x)"
     sleep 1
