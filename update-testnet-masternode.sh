@@ -29,7 +29,7 @@ echo "rpcuser="$rpcuser >> $confFile
 rpcpassword=$(gpw 1 30)
 echo "rpcpassword="$rpcpassword >> $confFile
 
-mn_ip=$(curl https://icanhazip.com)
+mn_ip=$(curl -4 https://icanhazip.com)
 mn_key=$(curl https://asgard.snowgem.org/php/public-api?action=getTestnetMnKey)
 
 report_asgard_testnet_mnkey $mn_key
