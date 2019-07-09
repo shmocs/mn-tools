@@ -63,7 +63,7 @@ Description=Snowgem Testnet daemon
 After=network-online.target
 [Service]
 ExecReload=/bin/kill -HUP $MAINPID
-ExecStart=$testnet_binaries_path/snowgemd --datadir=$testnet_wallet_path --reindex
+ExecStart=$testnet_binaries_path/snowgemd --datadir=$testnet_wallet_path
 WorkingDirectory=$testnet_wallet_path
 User=root
 KillMode=mixed
