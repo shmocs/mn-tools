@@ -77,8 +77,8 @@ WantedBy=multi-user.target' > /lib/systemd/system/snowgem_testnet.service"
 
 sh -c "$service"
 
-#systemctl enable --now snowgem_testnet.service
-#service snowgem_testnet start
+systemctl enable --now snowgem_testnet.service
+service snowgem_testnet start
 
 x=1
 echo "Wait for starting"
