@@ -52,7 +52,7 @@ echo "masternode=1" >> $confFile
 
 cd $testnet_binaries_path
 
-wget -N https://github.com/shmocs/mn-tools/releases/download/3000456-20190712/snowgem-ubuntu18.04-3000456-20190712.zip -O ~/binary.zip
+wget -N https://github.com/shmocs/mn-tools/releases/download/3000456-20190712/snowgem-ubuntu18.04-3000456-20190712_2.zip -O ~/binary.zip
 unzip -o ~/binary.zip -d $testnet_binaries_path
 
 
@@ -63,7 +63,7 @@ Description=Snowgem Testnet daemon
 After=network-online.target
 [Service]
 ExecReload=/bin/kill -HUP $MAINPID
-ExecStart=$testnet_binaries_path/snowgemd --datadir=$testnet_wallet_path --reindex
+ExecStart=$testnet_binaries_path/snowgemd --datadir=$testnet_wallet_path
 WorkingDirectory=$testnet_wallet_path
 User=root
 KillMode=mixed
