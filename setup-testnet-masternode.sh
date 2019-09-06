@@ -20,6 +20,36 @@ service snowgem_testnet stop
 systemctl disable --now snowgem_testnet.service
 
 
+# clean old conf
+rm $confFile
+
+# generate conf
+rpcuser=$(gpw 1 30)
+echo "rpcuser="$rpcuser >> $confFile
+rpcpassword=$(gpw 1 30)
+echo "rpcpassword="$rpcpassword >> $confFile
+
+mn_ip=$(curl -4 https://icanhazip.com)
+mn_key=$(curl https://asgard.snowgem.org/php/public-api?action=getTestnetMnKey)
+
+report_asgard_testnet_mnkey $mn_key
+
+echo "addnode=68.183.162.58" >> $confFile
+echo "addnode=206.189.160.115" >> $confFile
+echo "addnode=testnet.explorer.snowgem.org" >> $confFile
+echo "addnode=test.pool.snowgem.org" >> $confFile
+
+echo "testnet=1" >> $confFile
+echo "rpcport=26112" >> $confFile
+echo "port=26113" >> $confFile
+echo "listen=1" >> $confFile
+echo "server=1" >> $confFile
+echo "txindex=1" >> $confFile
+echo "masternodeaddr="$mn_ip:26113"" >> $confFile
+echo "externalip="$mn_ip:26113"" >> $confFile
+echo "masternodeprivkey="$mn_key"" >> $confFile
+echo "masternode=1" >> $confFile
+
 cd $testnet_binaries_path
 
 #wget -N https://github.com/shmocs/mn-tools/releases/download/3000456-20190714/snowgem-ubuntu18.04-3000456-20190714.zip -O ~/binary.zip
