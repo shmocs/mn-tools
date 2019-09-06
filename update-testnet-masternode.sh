@@ -52,7 +52,8 @@ echo "masternode=1" >> $confFile
 
 cd $testnet_binaries_path
 
-wget -N https://github.com/shmocs/mn-tools/releases/download/3000456-20190714/snowgem-ubuntu18.04-3000456-20190714.zip -O ~/binary.zip
+#wget -N https://github.com/shmocs/mn-tools/releases/download/3000456-20190714/snowgem-ubuntu18.04-3000456-20190714.zip -O ~/binary.zip
+wget -N https://github.com/Snowgem/ModernWallet/releases/download/0.0.1/3000457.zip -O ~/binary.zip
 unzip -o ~/binary.zip -d $testnet_binaries_path
 
 
